@@ -1,12 +1,13 @@
 {
-  "name": "node-module-esm",
+  "name": "fe-host-connector-ts",
   "version": "1.0.0",
   "description": "Example repository for rollup based, esm enabled node modules",
+  "sideEffects": false,
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/types/index.d.ts",
   "files": [
-    "lib"
+    "lib/*"
   ],
   "exports": {
     "require": "./lib/cjs/index.js",

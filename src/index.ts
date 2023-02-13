@@ -1,3 +1,6 @@
+import MockHostConnector from './MockHostConnector';
+import HostConnector from './HostConnector';
+
 /**
  * `js` appendix has been added as the typesciript compilation does add it
  * when transpilling to JavaScript
@@ -6,3 +9,10 @@
  * and https://github.com/microsoft/TypeScript/issues/40878
  */
 export * from '@/echo/echo';
+
+export const getConnector = (mock = false) => {
+  if (mock) return new MockHostConnector();
+  else return new HostConnector();
+};
+
+export { HostConnector, MockHostConnector };

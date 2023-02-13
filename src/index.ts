@@ -5,4 +5,4 @@
  * See https://stackoverflow.com/questions/44979976/typescript-compiler-is-forgetting-to-add-file-extensions-to-es6-module-imports
  * and https://github.com/microsoft/TypeScript/issues/40878
  */
-export * from './echo/echo.js';
+export * from '@/echo/echo.js';

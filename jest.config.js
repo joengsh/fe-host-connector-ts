@@ -1,7 +1,7 @@
 // /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
   // preset: 'ts-jest',
-  testEnvironment: 'jsdom',
+  testEnvironment: 'node',
   roots: ['<rootDir>/src'],
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
   // coverageProvider: 'v8',

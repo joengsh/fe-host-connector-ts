@@ -1,5 +1,5 @@
-import MockHostConnector from './MockHostConnector';
-import HostConnector from './HostConnector';
+import MockHostClient from './MockHostClient';
+import HostClient from './HostClient';
 
 /**
  * `js` appendix has been added as the typesciript compilation does add it
@@ -11,8 +11,8 @@ import HostConnector from './HostConnector';
 export * from '@/echo/echo';
 
 export const getConnector = (mock = false) => {
-  if (mock) return new MockHostConnector();
-  else return new HostConnector();
+  if (mock) return new MockHostClient();
+  else return new HostClient();
 };
 
-export { HostConnector, MockHostConnector };
+export { HostClient as HostConnector, MockHostClient as MockHostConnector };

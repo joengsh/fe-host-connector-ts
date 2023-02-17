@@ -20,8 +20,8 @@ export default defineUserConfig({
         link: '/',
         children: [
           {
-            text: 'General',
-            link: '/general.md'
+            text: 'Dealer',
+            link: '/dealer.md'
           },
           {
             text: 'Pitboss',

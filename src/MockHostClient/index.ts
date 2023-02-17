@@ -1,8 +1,8 @@
-import type { ConnectCallbackFn, ConnectOpt, Client, EventCallbackFn, InitResponse } from '@/type';
+import type { ConnectCallbackFn, ConnectOpt, Client, EventCallbackFn, InitRes, ClientOpt } from '@/type';
 
 export default class MockHostClient implements Client {
-  constructor() {}
-  init: (callback: (data: InitResponse) => void) => void;
+  constructor(opt: ClientOpt) {}
+  init: (callback: (data: InitRes) => void) => void;
   connect: (opt: ConnectOpt, callback: ConnectCallbackFn) => void;
   reconnect: () => void;
   subscribe: (event: string, callback: EventCallbackFn) => void;

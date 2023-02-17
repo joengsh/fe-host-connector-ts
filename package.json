@@ -31,6 +31,8 @@
     "jest:watch": "jest --watch",
     "jest:coverage": "jest --coverage",
     "jest:coverage:watch": "jest --coverage --watch",
+    "docs:dev": "(cd docs && npm run dev);",
+    "docs:build": "(cd docs && npm run build);",
     "test": "jest"
   },
   "lint-staged": {

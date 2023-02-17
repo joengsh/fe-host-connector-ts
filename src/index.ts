@@ -10,9 +10,4 @@ import HostClient from './HostClient';
  */
 export * from '@/echo/echo';
 
-export const getConnector = (mock = false) => {
-  if (mock) return new MockHostClient();
-  else return new HostClient();
-};
-
-export { HostClient as HostConnector, MockHostClient as MockHostConnector };
+export { HostClient, MockHostClient };

@@ -7,3 +7,9 @@
 
 // global.React = React; // this also works for other globally available libraries
 // enableFetchMocks();
+
+import fetch, { Headers, Response } from 'node-fetch';
+
+global.fetch = fetch;
+global.Headers = Headers;
+global.Response = Response;

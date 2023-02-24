@@ -1,10 +1,10 @@
 import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
-import { terser } from "rollup-plugin-terser";
+import { terser } from 'rollup-plugin-terser';
 
-const extensions = ['.js', '.ts' ];
+const extensions = ['.js', '.ts'];
 
-export default  {
+export default {
   input: 'src/index.ts',
   output: [
     {
@@ -32,8 +32,9 @@ export default  {
       sourcemap: true
     }
   ],
+  external: ['msw'],
   plugins: [
-    resolve({ extensions }),
-    babel({ babelHelpers: 'bundled', include: ['src/**/*.ts'], extensions, exclude: './node_modules/**'})
+    resolve({ extensions, browser: true }),
+    babel({ babelHelpers: 'bundled', include: ['src/**/*.ts'], extensions, exclude: './node_modules/**' })
   ]
-}
+};

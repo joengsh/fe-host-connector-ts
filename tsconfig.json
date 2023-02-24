@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationMap": true,
+    "target": "ESNext",
+    "module": "ES2015",
+    "moduleResolution": "node",
     "outDir": "lib/types",
     "baseUrl": "./",
     "paths": {

@@ -1,10 +1,32 @@
+import { FetchResponse } from '@/http-client/fetchhelper';
+
 export type Client = {
-  init: (callback: (data: InitRes) => void) => void;
   connect: (opt: ConnectOpt, callback: ConnectCallbackFn) => void;
   reconnect: () => void;
   subscribe: (event: string, callback: EventCallbackFn) => void;
   unsubscribe: (event: string) => void;
   isConnected: boolean;
+};
+
+export type DealerClient = {
+  login(dealer_id: string): Promise<FetchResponse<LoginResponse>>;
+  callPitboss(): Promise<FetchResponse<GeneralResponse>>;
+} & Client;
+
+export type PitbossClient = {
+  login(username: string, password: string): Promise<FetchResponse<LoginResponse>>;
+} & Client;
+
+export type LoginResponse = {
+  username?: string;
+  dealer_id?: string;
+  token: string;
+  mq_username: string;
+  mq_password: string;
+};
+
+export type GeneralResponse = {
+  success: number;
 };
 
 export type ClientOpt = {
@@ -25,16 +47,6 @@ export type Error = {
   code: number;
   id: string;
 };
-export type InitRes =
-  | {
-      gametype: [
-        {
-          id: string;
-          name: string;
-        }
-      ];
-    }
-  | Error;
 
 export type ConnectRes =
   | {

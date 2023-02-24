@@ -1,4 +1,4 @@
-const sharedPresets = ['@babel/preset-typescript'];
+const sharedPresets = [['@babel/preset-typescript', { allowDeclareFields: true }]];
 const shared = {
   ignore: ['src/**/*.spec.ts'],
   presets: sharedPresets,

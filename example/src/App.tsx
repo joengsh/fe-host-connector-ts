@@ -1,13 +1,48 @@
 import { useState, useEffect } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
-import { MockDealerHostClient } from 'fe-host-connector-ts';
+import { DealerHostClient, PitbossHostClient, MockDealerHostClient, MockPitbossHostClient } from 'fe-host-connector-ts';
 
 function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    async () => {
+    const run = async () => {
+      console.log('start');
+      const client = new DealerHostClient({
+        connectTimeout: 10 * 1000,
+        endpoint: 'dev', // dev
+        greencard: 'WG-GC',
+        id: 'H002', // H002, H003
+        path: '/ws/mqtt',
+        // logEnabled: true,
+        rabbitmqport: '443',
+        rabbitmqprotocol: 'wss',
+        rabbitmqvirtualhost: '/',
+        redcard: 'WG-RC'
+      });
+      const result = await client.login('test');
+      console.log('Dealer::', result);
+    };
+    const run2 = async () => {
+      console.log('start');
+      const client = new PitbossHostClient({
+        connectTimeout: 10 * 1000,
+        endpoint: 'dev', // dev
+        greencard: 'WG-GC',
+        id: 'H002', // H002, H003
+        path: '/ws/mqtt',
+        // logEnabled: true,
+        rabbitmqport: '443',
+        rabbitmqprotocol: 'wss',
+        rabbitmqvirtualhost: '/',
+        redcard: 'WG-RC'
+      });
+      const result = await client.login('test', '123');
+      console.log('Pitboss::', result);
+    };
+    const run3 = async () => {
+      console.log('start');
       const client = new MockDealerHostClient({
         connectTimeout: 10 * 1000,
         endpoint: 'dev', // dev
@@ -20,9 +55,12 @@ function App() {
         rabbitmqvirtualhost: '/',
         redcard: 'WG-RC'
       });
-      const result = await client.login('John');
-      console.log(result.token);
+      const result = await client.login('test');
+      console.log('Mock Dealer::', result);
     };
+    run();
+    run2();
+    run3();
   }, []);
 
   return (

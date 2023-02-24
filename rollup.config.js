@@ -32,9 +32,9 @@ export default {
       sourcemap: true
     }
   ],
-  external: ['msw'],
+  external: ['http'],
   plugins: [
-    resolve({ extensions, browser: true }),
+    resolve({ extensions }),
     babel({ babelHelpers: 'bundled', include: ['src/**/*.ts'], extensions, exclude: './node_modules/**' })
   ]
 };
